@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --champions-blue-dark: #000c28;
+  --champions-blue: #020c65;
+  --champions-light-blue: #02cbf7;
+  --champions-teal: #14f3c7;
+  --champions-magenta: #da0a8f;
+  --champions-star: #fff;
+}
+
+body {
+  background-color: var(--champions-blue-dark);
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
