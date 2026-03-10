@@ -1,0 +1,7 @@
+remote: error: Trace: d9acf78f0c346fbb5ac03e11fdd02b0d293ff7f248a9a06f9cd977ddcd5fbf8b        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File static/video.mp4 is 580.20 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/juanmajavaloyes/jcup-sorteo.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/juanmajavaloyes/jcup-sorteo.git'
