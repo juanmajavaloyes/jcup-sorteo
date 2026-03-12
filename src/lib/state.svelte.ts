@@ -27,14 +27,14 @@ export interface AppState {
 const generatePlayers = (prefix: string) => Array.from({ length: 10 }, (_, i) => `Jugador ${prefix} ${i + 1}`);
 
 const teamsList: Team[] = [
-    { id: '1', name: 'Team Alpha', image: '/escudo1.jpeg', players: generatePlayers('A') },
-    { id: '2', name: 'Team Beta', image: '/escudo2.jpeg', players: generatePlayers('B') },
-    { id: '3', name: 'Team Gamma', image: '/escudo3.jpeg', players: generatePlayers('C') },
-    { id: '4', name: 'Team Delta', image: '/escudo4.jpeg', players: generatePlayers('D') },
-    { id: '5', name: 'Team Epsilon', image: '/escudo5.jpeg', players: generatePlayers('E') },
-    { id: '6', name: 'Team Zeta', image: '/escudo6.jpeg', players: generatePlayers('F') },
-    { id: '7', name: 'Team Eta', image: '/escudo7.jpeg', players: generatePlayers('G') },
-    { id: '8', name: 'Team Theta', image: '/escudo8.jpeg', players: generatePlayers('H') }
+    { id: '1', name: '1º ESO A', image: '/escudo1-1.jpeg', players: generatePlayers('A') },
+    { id: '2', name: '1º ESO B', image: '/escudo2-1B.jpeg', players: generatePlayers('B') },
+    { id: '3', name: '1º ESO C', image: '/escudo3-1C.jpeg', players: generatePlayers('C') },
+    { id: '4', name: '1º ESO D', image: '/escudo4-1D.jpeg', players: generatePlayers('D') },
+    { id: '5', name: '1º ESO E', image: '/escudo5-1E.jpeg', players: generatePlayers('E') },
+    { id: '6', name: '2º ESO A', image: '/escudo6-2A.jpeg', players: generatePlayers('F') },
+    { id: '7', name: '2º ESO B', image: '/escudo7-2B.jpeg', players: generatePlayers('G') },
+    { id: '8', name: '2º ESO D', image: '/escudo8-2D.jpeg', players: generatePlayers('H') }
 ];
 
 // Initial State
