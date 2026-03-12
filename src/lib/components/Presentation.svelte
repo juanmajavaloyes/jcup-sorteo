@@ -64,7 +64,7 @@
                         out:fly={{ x: -1000, duration: 800, opacity: 0 }}
                     >
                         <div
-                            class="w-80 h-80 flex items-center justify-center bg-[#020c65]/80 rounded-full border-4 border-[var(--champions-light-blue)] shadow-[0_0_80px_rgba(2,203,247,0.6)] animate-[pulse_2s_ease-in-out_infinite]"
+                            class="w-80 h-80 flex items-center justify-center bg-gradient-to-br from-[#020c65]/40 to-[#020c65]/80 backdrop-blur-sm rounded-full border-4 border-[var(--champions-light-blue)] shadow-[0_0_100px_rgba(2,203,247,0.4)] animate-[pulse_3s_ease-in-out_infinite]"
                             in:scale={{
                                 duration: 1000,
                                 start: 0.1,
@@ -72,11 +72,9 @@
                             }}
                         >
                             <img
-                                src={appState.availableTeams[carouselIndex]
-                                    .image}
-                                alt={appState.availableTeams[carouselIndex]
-                                    .name}
-                                class="max-w-[220px] max-h-[220px] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                                src={appState.availableTeams[carouselIndex].image}
+                                alt={appState.availableTeams[carouselIndex].name}
+                                class="max-w-[240px] max-h-[240px] object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
                             />
                         </div>
                         <h3
@@ -126,12 +124,12 @@
                             }}
                         >
                             <div
-                                class="w-80 h-80 flex items-center justify-center bg-[#020c65]/80 rounded-full border-4 border-[var(--champions-light-blue)] shadow-[0_0_80px_rgba(2,203,247,0.6)] animate-[pulse_2s_ease-in-out_infinite]"
+                                class="w-80 h-80 flex items-center justify-center bg-gradient-to-br from-[#020c65]/30 to-[#020c65]/70 backdrop-blur-sm rounded-full border-4 border-[var(--champions-light-blue)] shadow-[0_0_80px_rgba(2,203,247,0.4)] animate-[pulse_4s_ease-in-out_infinite]"
                             >
                                 <img
                                     src={team.image}
                                     alt={team.name}
-                                    class="max-w-[220px] max-h-[220px] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                                    class="max-w-[240px] max-h-[240px] object-contain filter drop-shadow-[0_15px_40px_rgba(0,0,0,0.6)]"
                                 />
                             </div>
                             <h3
@@ -203,12 +201,12 @@
                                 }}
                             >
                                 <div
-                                    class="relative w-40 h-40 flex items-center justify-center bg-[#020c65]/50 rounded-full border border-[var(--champions-light-blue)]/30 group-hover:border-[var(--champions-teal)] group-hover:scale-110 transition-all duration-500 shadow-[0_0_20px_rgba(2,203,247,0.2)] group-hover:shadow-[0_0_30px_rgba(20,243,199,0.5)]"
+                                    class="relative w-40 h-40 flex items-center justify-center bg-white/5 backdrop-blur-[2px] rounded-full border border-[var(--champions-light-blue)]/30 group-hover:border-[var(--champions-teal)] group-hover:scale-110 transition-all duration-500 shadow-[0_0_20px_rgba(2,203,247,0.1)] group-hover:shadow-[0_0_40px_rgba(20,243,199,0.3)]"
                                 >
                                     <img
                                         src={team.image}
                                         alt={team.name}
-                                        class="max-w-[120px] max-h-[120px] object-contain drop-shadow-xl"
+                                        class="max-w-[120px] max-h-[120px] object-contain filter drop-shadow-2xl"
                                     />
                                 </div>
                                 <div

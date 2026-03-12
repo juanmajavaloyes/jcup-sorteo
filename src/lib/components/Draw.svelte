@@ -82,7 +82,7 @@
                             <img
                                 src={currentMatchup.teamA.image}
                                 alt={currentMatchup.teamA.name}
-                                class="w-40 h-40 object-contain drop-shadow-2xl"
+                                class="w-48 h-48 object-contain filter drop-shadow-[0_15px_40px_rgba(0,0,0,0.6)]"
                             />
                             <span
                                 class="mt-6 text-3xl font-bold tracking-widest uppercase"
@@ -123,7 +123,7 @@
                             <img
                                 src={currentMatchup.teamB.image}
                                 alt={currentMatchup.teamB.name}
-                                class="w-40 h-40 object-contain drop-shadow-2xl"
+                                class="w-48 h-48 object-contain filter drop-shadow-[0_15px_40px_rgba(0,0,0,0.6)]"
                             />
                             <span
                                 class="mt-6 text-3xl font-bold tracking-widest uppercase"

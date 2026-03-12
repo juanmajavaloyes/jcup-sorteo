@@ -44,13 +44,13 @@
                 >
                     {#if state.matchups[0].teamA}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[0].teamA.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -66,13 +66,13 @@
                 >
                     {#if state.matchups[0].teamB}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[0].teamB.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -101,13 +101,13 @@
                 >
                     {#if state.matchups[1].teamA}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[1].teamA.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -123,13 +123,13 @@
                 >
                     {#if state.matchups[1].teamB}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[1].teamB.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -181,13 +181,13 @@
                 >
                     {#if state.matchups[2].teamA}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[2].teamA.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -203,13 +203,13 @@
                 >
                     {#if state.matchups[2].teamB}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[2].teamB.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -235,13 +235,13 @@
                 >
                     {#if state.matchups[3].teamA}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[3].teamA.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
@@ -257,13 +257,13 @@
                 >
                     {#if state.matchups[3].teamB}
                         <div
-                            class="w-10 h-10 bg-white/10 rounded flex items-center justify-center p-1"
+                            class="w-10 h-10 flex items-center justify-center p-0.5"
                             in:scale
                         >
                             <img
                                 src={state.matchups[3].teamB.image}
                                 alt=""
-                                class="max-h-full max-w-full drop-shadow-md"
+                                class="max-h-full max-w-full object-contain filter drop-shadow-[0_0_8px_rgba(2,203,247,0.4)]"
                             />
                         </div>
                         <span
