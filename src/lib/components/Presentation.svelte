@@ -32,7 +32,7 @@
 </script>
 
 <div
-    class="fixed inset-0 flex flex-col items-center justify-center pt-24 overflow-hidden cursor-none"
+    class="fixed inset-0 flex flex-col items-center justify-center pt-24 cursor-none"
     in:fade
     out:fade
 >
@@ -47,7 +47,7 @@
     <!-- Carousel View -->
     {#if !showGrid && !appState.presentingTeamId}
         <div
-            class="relative w-full h-[60vh] flex items-center justify-center overflow-x-hidden"
+            class="relative w-full h-[60vh] flex items-center justify-center [overflow-x:clip]"
             in:fade={{ duration: 500 }}
             out:fade={{ duration: 500 }}
         >
