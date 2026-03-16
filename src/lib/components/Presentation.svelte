@@ -109,7 +109,7 @@
                                   (_, i) => ({ name: `Jugador ${i + 1}`, number: i + 1 }),
                               )}
                     <div
-                        class="absolute inset-0 flex pt-32 px-24"
+                        class="absolute inset-0 flex pt-20 px-24 pb-6"
                         in:fade={{ duration: 1500 }}
                         out:fade={{ duration: 1000 }}
                     >
@@ -142,16 +142,16 @@
                         <!-- Players Grid -->
                         <div class="flex-1 ml-24">
                             <h2
-                                class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--champions-light-blue)] mb-10 tracking-[0.2em] border-b border-white/20 pb-4"
+                                class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--champions-light-blue)] mb-5 tracking-[0.2em] border-b border-white/20 pb-3"
                                 in:fade={{ duration: 800, delay: 1200 }}
                             >
                                 PLANTILLA OFICIAL
                             </h2>
 
-                            <div class="grid grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="grid grid-cols-2 gap-x-8 gap-y-2">
                                 {#each playersList as player, i (player.name + i)}
                                     <div
-                                        class="flex items-center gap-4 text-xl font-bold text-white bg-white/5 p-3 rounded-lg border border-white/10"
+                                        class="flex items-center gap-3 text-lg font-bold text-white bg-white/5 p-2 rounded-lg border border-white/10"
                                         in:fly|global={{
                                             x: 50,
                                             opacity: 0,
@@ -160,7 +160,7 @@
                                         }}
                                     >
                                         <span
-                                            class="text-[var(--champions-teal)] font-black text-2xl opacity-80 w-8 text-center"
+                                            class="text-[var(--champions-teal)] font-black text-xl opacity-80 w-8 text-center"
                                             >{player.number}</span
                                         >
                                         <span class="tracking-wider uppercase truncate"
