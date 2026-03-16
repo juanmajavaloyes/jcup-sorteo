@@ -22,6 +22,17 @@
         state.selectedTournament === 'jcup' ? state.jcupMatchups : state.sierracupMatchups
     );
 
+    // Sierra Cup Semi 1: teamA is reserved for play-in winner, only teamB is drawn
+    let isSierraSemi1 = $derived(
+        state.selectedTournament === 'sierracup' && state.currentMatchupIndex === 1
+    );
+
+    let currentMatchup = $derived(currentMatchups[state.currentMatchupIndex]);
+
+    let isCurrentMatchupComplete = $derived(
+        isSierraSemi1 ? !!currentMatchup.teamB : !!(currentMatchup.teamA && currentMatchup.teamB)
+    );
+
     // Teams that haven't been picked yet for the SELECTED tournament
     let availableForDraw = $derived(
         state.availableTeams.filter(
@@ -237,7 +248,7 @@
                         {#each availableForDraw as team}
                             <button
                                 onclick={() => pickNextMatchup(team.id)}
-                                disabled={state.revealingTeam !== null || !!(currentMatchups[state.currentMatchupIndex].teamA && currentMatchups[state.currentMatchupIndex].teamB)}
+                                disabled={state.revealingTeam !== null || isCurrentMatchupComplete}
                                 class="flex items-center gap-3 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded transition-all active:scale-95 disabled:opacity-30"
                             >
                                 <img src={team.image} alt="" class="w-6 h-6 object-contain" />
@@ -253,7 +264,7 @@
                     </div>
                     <button
                         onclick={advanceMatchup}
-                        disabled={!currentMatchups[state.currentMatchupIndex].teamA || !currentMatchups[state.currentMatchupIndex].teamB || state.currentMatchupIndex >= currentMatchups.length - 1}
+                        disabled={!isCurrentMatchupComplete || state.currentMatchupIndex >= currentMatchups.length - 1}
                         class="px-6 py-2 bg-green-600 hover:bg-green-500 disabled:opacity-50 rounded font-bold transition-all"
                     >
                         Siguiente Paso
