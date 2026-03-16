@@ -32,7 +32,7 @@
 </script>
 
 <div
-    class="fixed inset-0 flex flex-col items-center justify-center pt-24 overflow-hidden"
+    class="fixed inset-0 flex flex-col items-center justify-center pt-24 overflow-hidden cursor-none"
     in:fade
     out:fade
 >
@@ -47,7 +47,7 @@
     <!-- Carousel View -->
     {#if !showGrid && !appState.presentingTeamId}
         <div
-            class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden"
+            class="relative w-full h-[60vh] flex items-center justify-center overflow-x-hidden"
             in:fade={{ duration: 500 }}
             out:fade={{ duration: 500 }}
         >
@@ -106,7 +106,7 @@
                             ? team.players
                             : Array.from(
                                   { length: 10 },
-                                  (_, i) => `Jugador ${i + 1}`,
+                                  (_, i) => ({ name: `Jugador ${i + 1}`, number: i + 1 }),
                               )}
                     <div
                         class="absolute inset-0 flex pt-32 px-24"
@@ -148,23 +148,23 @@
                                 PLANTILLA OFICIAL
                             </h2>
 
-                            <div class="grid grid-cols-2 gap-x-16 gap-y-6">
-                                {#each playersList as player, i (player + i)}
+                            <div class="grid grid-cols-2 gap-x-12 gap-y-4">
+                                {#each playersList as player, i (player.name + i)}
                                     <div
-                                        class="flex items-center gap-6 text-2xl font-bold text-white bg-white/5 p-4 rounded-lg border border-white/10"
+                                        class="flex items-center gap-4 text-xl font-bold text-white bg-white/5 p-3 rounded-lg border border-white/10"
                                         in:fly|global={{
                                             x: 50,
                                             opacity: 0,
                                             duration: 600,
-                                            delay: 1600 + i * 150,
+                                            delay: 1600 + i * 100,
                                         }}
                                     >
                                         <span
-                                            class="text-[var(--champions-teal)] font-black text-3xl opacity-80 w-8"
-                                            >{i + 1}</span
+                                            class="text-[var(--champions-teal)] font-black text-2xl opacity-80 w-8 text-center"
+                                            >{player.number}</span
                                         >
-                                        <span class="tracking-wider uppercase"
-                                            >{player}</span
+                                        <span class="tracking-wider uppercase truncate"
+                                            >{player.name}</span
                                         >
                                     </div>
                                 {/each}
@@ -175,50 +175,96 @@
             {:else}
                 <!-- Standby Grid -->
                 <div
-                    class="absolute inset-0 flex flex-col items-center pt-24"
+                    class="absolute inset-0 flex flex-col items-center pt-20 px-10"
                     in:fade={{ duration: 1000 }}
                     out:fade={{ duration: 800 }}
                 >
-                    <h2
-                        class="text-5xl font-extrabold uppercase tracking-[0.2em] mb-4 text-[var(--champions-star)] drop-shadow-md"
-                    >
+                    <h2 class="text-5xl font-extrabold uppercase tracking-[0.2em] mb-4 text-[var(--champions-star)] drop-shadow-md">
                         Equipos Participantes
                     </h2>
-                    <div
-                        class="w-2/3 h-1 bg-gradient-to-r from-transparent via-[var(--champions-light-blue)] to-transparent mb-16"
-                    ></div>
+                    <div class="w-1/2 h-1 bg-gradient-to-r from-transparent via-[var(--champions-light-blue)] to-transparent mb-12"></div>
 
-                    <div
-                        class="grid grid-cols-4 gap-x-16 gap-y-12 max-w-6xl w-full"
-                    >
-                        {#each appState.availableTeams as team, i (team.id)}
-                            <div
-                                class="flex flex-col items-center group transition-all"
-                                in:scale={{
-                                    duration: 600,
-                                    delay: i * 100,
-                                    start: 0.8,
-                                }}
-                            >
-                                <div
-                                    class="relative w-40 h-40 flex items-center justify-center bg-white/5 backdrop-blur-[2px] rounded-full border border-[var(--champions-light-blue)]/30 group-hover:border-[var(--champions-teal)] group-hover:scale-110 transition-all duration-500 shadow-[0_0_20px_rgba(2,203,247,0.1)] group-hover:shadow-[0_0_40px_rgba(20,243,199,0.3)]"
-                                >
-                                    <img
-                                        src={team.image}
-                                        alt={team.name}
-                                        class="max-w-[120px] max-h-[120px] object-contain filter drop-shadow-2xl"
-                                    />
-                                </div>
-                                <div
-                                    class="mt-6 text-xl font-bold tracking-wider text-center bg-gradient-to-b from-white to-[var(--champions-light-blue)] bg-clip-text text-transparent uppercase"
-                                >
-                                    {team.name}
-                                </div>
+                    <div class="w-full max-w-7xl flex flex-col gap-12">
+                        
+                        <!-- JCUP Section -->
+                        <div class="flex flex-col items-center">
+                            <h3 class="text-2xl font-bold text-[#14f3c7] tracking-[0.5em] uppercase mb-8 opacity-80 decoration-2 underline-offset-8">
+                                JCUP
+                            </h3>
+                            <div class="grid grid-cols-4 gap-12 w-full">
+                                {#each appState.availableTeams.filter(t => t.tournament === 'jcup') as team, i (team.id)}
+                                    <div
+                                        class="flex flex-col items-center"
+                                        in:scale={{ duration: 600, delay: i * 100, start: 0.8 }}
+                                        style="animation: float 3.5s ease-in-out infinite; animation-delay: {i * 450}ms"
+                                    >
+                                        <div class="glow-teal relative w-36 h-36 flex items-center justify-center bg-white/5 backdrop-blur-[2px] rounded-full border border-[var(--champions-light-blue)]/30"
+                                            style="animation: glowTeal 4s ease-in-out infinite; animation-delay: {i * 450}ms">
+                                            <img src={team.image} alt={team.name} class="max-w-[100px] max-h-[100px] object-contain filter drop-shadow-2xl" />
+                                        </div>
+                                        <div class="mt-4 text-lg font-bold tracking-wider text-center bg-gradient-to-b from-white to-[var(--champions-light-blue)] bg-clip-text text-transparent uppercase">
+                                            {team.name}
+                                        </div>
+                                    </div>
+                                {/each}
                             </div>
-                        {/each}
+                        </div>
+
+                        <!-- SIERRA CUP Section -->
+                        <div class="flex flex-col items-center">
+                            <h3 class="text-2xl font-bold text-[#da0a8f] tracking-[0.5em] uppercase mb-8 opacity-80 decoration-2 underline-offset-8">
+                                Sierra Cup
+                            </h3>
+                            <div class="grid grid-cols-5 gap-8 w-full">
+                                {#each appState.availableTeams.filter(t => t.tournament === 'sierracup') as team, i (team.id)}
+                                    <div
+                                        class="flex flex-col items-center"
+                                        in:scale={{ duration: 600, delay: 400 + i * 100, start: 0.8 }}
+                                        style="animation: float 3.5s ease-in-out infinite; animation-delay: {(i + 4) * 380}ms"
+                                    >
+                                        <div class="relative w-32 h-32 flex items-center justify-center bg-white/5 backdrop-blur-[2px] rounded-full border border-[var(--champions-light-blue)]/30"
+                                            style="animation: glowPink 4s ease-in-out infinite; animation-delay: {(i + 4) * 380}ms">
+                                            <img src={team.image} alt={team.name} class="max-w-[85px] max-h-[85px] object-contain filter drop-shadow-2xl" />
+                                        </div>
+                                        <div class="mt-4 text-base font-bold tracking-wider text-center bg-gradient-to-b from-white to-[var(--champions-light-blue)] bg-clip-text text-transparent uppercase">
+                                            {team.name}
+                                        </div>
+                                    </div>
+                                {/each}
+                            </div>
+                        </div>
                     </div>
                 </div>
             {/if}
         {/key}
     {/if}
 </div>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-14px); }
+    }
+
+    @keyframes glowTeal {
+        0%, 100% {
+            box-shadow: 0 0 20px rgba(2, 203, 247, 0.15);
+            border-color: rgba(2, 203, 247, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 55px rgba(20, 243, 199, 0.55), 0 0 20px rgba(2, 203, 247, 0.3);
+            border-color: rgba(20, 243, 199, 0.9);
+        }
+    }
+
+    @keyframes glowPink {
+        0%, 100% {
+            box-shadow: 0 0 20px rgba(218, 10, 143, 0.15);
+            border-color: rgba(2, 203, 247, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 55px rgba(218, 10, 143, 0.55), 0 0 20px rgba(218, 10, 143, 0.3);
+            border-color: rgba(218, 10, 143, 0.9);
+        }
+    }
+</style>

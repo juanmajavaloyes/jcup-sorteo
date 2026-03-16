@@ -1,16 +1,19 @@
 <script lang="ts">
-    import { fade, fly, scale } from "svelte/transition";
+    import { fade, scale } from "svelte/transition";
     import { getState } from "$lib/state.svelte";
 
     const state = getState();
 
-    // The current pairing being drawn
-    let currentMatchup = $derived(state.matchups[state.currentMatchupIndex]);
+    // The current pairing being drawn based on selected tournament
+    let currentMatchups = $derived(
+        state.selectedTournament === 'jcup' ? state.jcupMatchups : state.sierracupMatchups
+    );
+    let currentMatchup = $derived(currentMatchups[state.currentMatchupIndex]);
 
-    // Unassigned teams count visually
+    // Unassigned teams count visually for current tournament
     let unassignedTeamsCount = $derived(
-        state.availableTeams.length -
-            state.matchups
+        state.availableTeams.filter(t => t.tournament === state.selectedTournament).length -
+            currentMatchups
                 .flatMap((m) => [m.teamA, m.teamB])
                 .filter((t) => t !== null).length,
     );
@@ -51,11 +54,11 @@
             <h2
                 class="text-3xl font-bold uppercase tracking-widest text-[#14f3c7] animate-[pulse_2s_ease-in-out_infinite]"
             >
-                Sorteo en curso (LIVE)
+                {state.selectedTournament === 'jcup' ? 'JCUP' : 'SIERRA CUP'} - LIVE
             </h2>
         </div>
         <span class="text-xl font-light tracking-wider opacity-80"
-            >Equipos restantes: {unassignedTeamsCount}</span
+            >Equipos en el bombo: {unassignedTeamsCount}</span
         >
     </div>
 
@@ -64,7 +67,7 @@
             <h3
                 class="text-2xl tracking-[0.3em] font-light mb-12 text-[#02cbf7] uppercase"
             >
-                Emparejamiento {state.currentMatchupIndex + 1}
+                {currentMatchup.label}
             </h3>
 
             <div
@@ -148,3 +151,4 @@
         </div>
     {/if}
 </div>
+
