@@ -1,6 +1,8 @@
 node_modules
 *.mp4
+!static/intro.mp4
 *.mp3
+!static/Canción\ Sorteo-\ Gonzalo\ Naranjo.mp3
 *.zip
 *.xlsx
 
