@@ -2,7 +2,7 @@
     import { fade } from "svelte/transition";
     import { onMount } from "svelte";
 
-    const videoUrl = "/promo.mp4";
+    const videoUrl = "https://qhfcwxl0t27szjhc.public.blob.vercel-storage.com/promo.mp4";
 
     let videoElement: HTMLVideoElement;
 
