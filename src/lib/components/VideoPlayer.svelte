@@ -1,8 +1,7 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
     import { onMount } from "svelte";
-
-    const videoUrl = "https://qhfcwxl0t27szjhc.public.blob.vercel-storage.com/promo.mp4";
+    import { PUBLIC_PROMO_VIDEO_URL } from "$env/static/public";
 
     let videoElement: HTMLVideoElement;
 
@@ -21,7 +20,7 @@
     <!-- svelte-ignore a11y_media_has_caption -->
     <video
         bind:this={videoElement}
-        src={videoUrl}
+        src={PUBLIC_PROMO_VIDEO_URL}
         class="w-full h-full object-contain"
         controls={false}
         autoplay
